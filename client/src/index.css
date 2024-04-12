@@ -1,0 +1,112 @@
+.flexContainer {
+    display: flex;
+    min-width: auto;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.todoListForm {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.listHeading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    /* margin-top: 30px; */
+    display: flex;
+    margin: 1.5% 0%;
+    justify-content: space-around;
+}
+
+.listContainer {
+    margin: 20px 0 0 0;
+}
+
+li:last-child {
+    border: none;
+}
+
+li button{
+    flex-grow:4;
+}
+
+li span {
+    /* display:none; */
+    /* width: inherit; */
+    font-size: 160%;
+    /* min-width: 0; */
+    overflow-wrap: anywhere;
+    flex: 1;
+    margin: 0 4%;
+    flex-shrink: 1;
+}
+
+.listItem {
+    transition: all 0.3s;
+    border: 0;
+    padding: 0;
+    display: none;
+    /* width: inherit; */
+    font-size: 160%;
+    /* min-width: 0; */
+    overflow-wrap: anywhere;
+    flex: 1;
+    margin: 0 4%;
+    flex-shrink: 1;
+    outline: none;
+    border-color: #eeeeee;
+    border-style: none none solid;
+}
+.listItem:focus{
+    color: rgb(112, 110, 111);
+    box-shadow: inset 0 -3px 0 0 rgb(83, 81, 82);
+}
+
+li button {
+    flex: 0;
+    align-self: center;
+}
+
+li button:last-child {
+    margin: 0 3% 0 0
+}
+
+.todoInput {
+    transition: all 0.3s;
+    margin: 0 5px 0 0;
+    width: 200px;
+    font-size: 120%;
+    outline: none;
+    border-color: #eeeeee;
+    border-style: none none solid;
+
+}
+
+.todoInput:focus {
+    color: rgb(83, 81, 82);
+    box-shadow: inset 0 -3px 0 0 rgb(83, 81, 82);
+    /* border-style: none none solid ; */
+
+}
+
+button {
+    color: white;
+    font-size: larger;
+    margin: 5px 3px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(83, 81, 82);
+    border-radius: 5px;
+
+}
