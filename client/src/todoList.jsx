@@ -38,7 +38,7 @@ function TodoList() {
     // Simple code to see if the connection is established with the back end
     const connectionTest = () => {
         return new Promise((resolve, reject) => {
-            axios.get('https://localhost:3000/api/test').then((message) => {
+            axios.get('https://todolistwithmern.onrender.com/api/getData').then((message) => {
                 resolve("Connection to back-end established!");
             }).catch((message) => {
                 reject("Something wrong with the connection");
