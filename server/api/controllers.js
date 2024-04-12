@@ -9,6 +9,11 @@ crudRouter.use(bodyParser.urlencoded({
 
 crudRouter.use(bodyParser.json());
 
+crudRouter.post('/test', (req, res) => {
+    res.send("Working well!");
+})
+
+
 crudRouter.post('/update', (req, res) => {
     async function updateData() {
         var key = req.body.key;

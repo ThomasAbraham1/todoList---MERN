@@ -9,7 +9,7 @@ function App() {
         duration: 10000,
         position: 'top-center',
       })
-    }, 5000);
+    }, 10000);
   }, [])
   return (
     <>

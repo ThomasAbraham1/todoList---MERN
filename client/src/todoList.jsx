@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import React from 'react';
 import axios from 'axios';
+import { Toaster, toast } from 'sonner';
 // import $ from 'jquery';
 
 
@@ -9,6 +10,21 @@ function TodoList() {
     // Inital fetch
     useEffect(() => {
         showTodos();
+        toast.promise(connectionTest(), {
+            duration: 5000,
+            position: 'bottom-center',
+            loading: 'Loading...',
+            success: (data) => {
+                return `${data}`;
+            },
+            error: 'Problem with fetching from free tier back-end service',
+        });
+        // connectionTest().then((message)=>{
+        //     console.log(message);
+        // }).catch((message)=>{
+        //     console.log(message);
+        // });
+
     }, []);
 
 
@@ -19,8 +35,16 @@ function TodoList() {
     function inputChange(event) {
         setNewTask(event.target.value);
     }
-
-
+    // Simple code to see if the connection is established with the back end
+    const connectionTest = () => {
+        return new Promise((resolve, reject) => {
+            axios.get('https://localhost:3000/api/test').then((message) => {
+                resolve("Connection to back-end established!");
+            }).catch((message) => {
+                reject("Something wrong with the connection");
+            })
+        });
+    }
     const showTodos = async () => {
         try {
             const { data } = await axios.get('https://todolistwithmern.onrender.com/api/getData');
@@ -112,11 +136,12 @@ function TodoList() {
 
 
         <div className="todoListForm" onSubmit={onSubmit}>
+            <Toaster />
             <center>
                 <h2>To-do List</h2>
             </center>
             <div className="listHeading">
-                <input type="text" className = "todoInput" placeholder='Enter a task' onKeyDown={onKeyDown} onChange={inputChange} value={newTask} required />
+                <input type="text" className="todoInput" placeholder='Enter a task' onKeyDown={onKeyDown} onChange={inputChange} value={newTask} required />
                 <button ref={addBtnRef} type='submit' onClick={addTask}>Add Task</button>
             </div>
             <div className="listContainer">
