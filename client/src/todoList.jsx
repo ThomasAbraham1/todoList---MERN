@@ -23,7 +23,7 @@ function TodoList() {
 
     const showTodos = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/getData');
+            const { data } = await axios.get('https://todolistwithmern.onrender.com/api/getData');
             var hello = data.map((e, i) => ({ key: e._id, itemName: e.item }));
             // console.log(hello);
             setTasks(hello);
@@ -36,7 +36,7 @@ function TodoList() {
     const addTask = async (e) => {
         // e.preventDefault();
         try {
-            const add = await axios.post('http://localhost:3000/api/addData', { item: newTask });
+            const add = await axios.post('https://todolistwithmern.onrender.com/api/addData', { item: newTask });
             if (add.status === 200) {
                 showTodos();
                 setNewTask("");
@@ -50,7 +50,7 @@ function TodoList() {
     const onDelete = async (key) => {
         try {
             // console.log("hello")
-            const add = await axios.post('http://localhost:3000/api/delete', { key: key });
+            const add = await axios.post('https://todolistwithmern.onrender.com/api/delete', { key: key });
             if (add.status === 200) {
                 showTodos();
             }
@@ -90,7 +90,7 @@ function TodoList() {
         // console.log(inputElement.value);
         // Sending post req to update api
         try {
-            const add = await axios.post('http://localhost:3000/api/update', { key: key, itemName: newItemName });
+            const add = await axios.post('https://todolistwithmern.onrender.com/api/update', { key: key, itemName: newItemName });
             if (add.status === 200) {
                 showTodos();
             }
